@@ -16,7 +16,7 @@ const displayPhones = (phones) => {
 
     const div = document.createElement("div");
     div.innerHTML = `
-    <div class="card rounded-3 shadow mx-auto boreder-0" style="width: 18rem;">
+    <div class="card rounded-3 shadow-lg mx-auto" style="width: 18rem;">
             <img src="${phone.image}" class="card-img-top p-1" alt="...">
         <div class="card-body">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
