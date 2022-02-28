@@ -21,15 +21,22 @@ const displayPhones = (phones) => {
         <div class="card-body">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             <h6>Brand: ${phone.brand}</h6>
-            <button onclick="showDetails('${phone.slug}')" class="btn btn-outline-dark">Explore</button>
+            <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-dark">Explore</button>
         </div>
     </div>
     `;
     parent.appendChild(div);
   });
 };
+// load phone details
+const loadDetails = (phoneId) => {
+  const url = `https://openapi.programming-hero.com/api/phone/${phoneId}`;
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => showDetails(data.data));
+};
 
 // display phone details to UI
-const showDetails = (phoneId) => {
-  console.log(phoneId);
+const showDetails = (singlePhone) => {
+  console.log(singlePhone);
 };
