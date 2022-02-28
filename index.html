@@ -16,21 +16,46 @@
     <title>Smartphone-Explorer</title>
   </head>
   <body>
+    <!-- search box and website title start -->
     <header class="container mx-auto w-50">
       <section>
         <h1 class="text-center fw-bold text-uppercase mt-3">phone explorer</h1>
         <div class="d-flex mt-3">
           <input
+            id="search-input"
             class="form-control me-2"
             type="search"
             placeholder="Search phone"
             aria-label="Search"
           />
-          <button class="btn btn-outline-info" type="submit">Search</button>
+          <button
+            onclick="loadPhones()"
+            class="btn btn-outline-dark"
+            type="submit"
+          >
+            Search
+          </button>
         </div>
       </section>
     </header>
-    <main></main>
+    <!-- search box and website title end -->
+
+    <!-- phone cards -->
+    <main class="container mt-5">
+      <section>
+        <div class="card" style="width: 18rem">
+          <img src="..." class="card-img-top" alt="..." />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p>
+            <button href="#" class="btn btn-outline-dark">Explore</button>
+          </div>
+        </div>
+      </section>
+    </main>
     <!-- bootstrap bundle -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
