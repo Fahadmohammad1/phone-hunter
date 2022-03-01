@@ -16,6 +16,14 @@ body {
 #empty-error {
   display: none;
 }
+/* invalid name error */
+#name-error {
+  display: none;
+}
+/* spinner */
+#spinner {
+  display: none;
+}
 /* hide details container */
 #details-container {
   display: none;
