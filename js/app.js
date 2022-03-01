@@ -91,6 +91,10 @@ const showDetails = (singlePhone) => {
                   </thead>
                   <tbody>
                     <tr>
+                      <th scope="row">Brand</th>
+                      <td>: ${singlePhone.brand}</td>
+                    </tr>
+                    <tr>
                       <th scope="row">Storage</th>
                       <td>: ${singlePhone.mainFeatures.storage}</td>
                     </tr>
