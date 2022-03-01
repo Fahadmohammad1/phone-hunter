@@ -4,8 +4,15 @@
 body {
   font-family: "Poppins", sans-serif;
 }
-/* main title color */
-h1 {
+/* main color of website */
+.primary-color {
   color: #02b290;
 }
+/* cards background */
+#phone-container {
+  background-color: #cad5e2;
+}
 /* hide details container */
+#details-container {
+  display: none;
+}

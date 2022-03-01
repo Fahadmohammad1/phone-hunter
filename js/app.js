@@ -1,12 +1,13 @@
 // load phones
 const loadPhones = () => {
+  document.getElementById("details-container").innerHTML = "";
   document.getElementById("phone-container").innerHTML = "";
   const input = document.getElementById("search-input").value;
 
   const url = `https://openapi.programming-hero.com/api/phones?search=${input}`;
   fetch(url)
     .then((res) => res.json())
-    .then((data) => displayPhones(data.data));
+    .then((data) => displayPhones(data.data.slice(0, 20)));
   document.getElementById("search-input").value = "";
 };
 // display phones to UI
@@ -16,8 +17,8 @@ const displayPhones = (phones) => {
 
     const div = document.createElement("div");
     div.innerHTML = `
-    <div class="card rounded-3 shadow-lg mx-auto" style="width: 18rem;">
-            <img src="${phone.image}" class="card-img-top p-1" alt="...">
+    <div class="card pt-2 rounded-3 shadow-lg mx-auto" style="width: 18rem;">
+            <img src="${phone.image}" class="card-img-top p-1 w-50 mx-auto" alt="...">
         <div class="card-body">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             <h6>Brand: ${phone.brand}</h6>
@@ -38,5 +39,96 @@ const loadDetails = (phoneId) => {
 
 // display phone details to UI
 const showDetails = (singlePhone) => {
-  console.log(singlePhone);
+  window.scrollTo(0, 0);
+  document.getElementById("details-container").innerHTML = "";
+  document.getElementById("details-container").style.display = "block";
+  const detailsContainer = document.getElementById("details-container");
+
+  const div = document.createElement("div");
+  div.innerHTML = `
+  <div class="row row-cols-1 row-cols-md-1 g-4">
+          <div class="col">
+            <div class="card border-0 shadow-lg">
+              <h3 class="text-center fs-2 fw-bold py-3">${singlePhone.name}</h3>
+              <small class="text-center mb-3">Release Date: ${singlePhone.releaseDate}</small>
+              <img
+                src="${singlePhone.image}"
+                class="card-img-top w-25 mx-auto mt-2"
+                alt="mobile image"
+              />
+              <div class="card-body">
+                <table class="table table-striped">
+                  <thead>
+                    <tr class="fs-5 primary-color">
+                      <th scope="col">Main Features:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Storage</th>
+                      <td>: ${singlePhone.mainFeatures.storage}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Display</th>
+                      <td>
+                        : ${singlePhone.mainFeatures.displaySize}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Chipset</th>
+                      <td>: ${singlePhone.mainFeatures.chipSet}
+                    </tr>
+                    <tr>
+                      <th scope="row">sensors</th>
+                      <td>
+                        : ${singlePhone.mainFeatures.sensors}
+                      </td>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr class="fs-5 primary-color">
+                      <th scope="col">Other Features:</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">WLAN</th>
+                      <td>: ${singlePhone.others.WLAN}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Bluetooth</th>
+                      <td>
+                        : ${singlePhone.others.Bluetooth}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">GPS</th>
+                      <td>: ${singlePhone.others.GPS}</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">NFC</th>
+                      <td>
+                        : ${singlePhone.others.NFC}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Radio</th>
+                      <td>
+                        : ${singlePhone.others.Radio}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th scope="row">USB</th>
+                      <td>
+                        : ${singlePhone.others.USB}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+  `;
+  detailsContainer.appendChild(div);
 };
