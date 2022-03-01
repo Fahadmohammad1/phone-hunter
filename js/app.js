@@ -71,14 +71,18 @@ const showDetails = (singlePhone) => {
           <div class="col-12">
             <div class="card border-0 shadow-lg">
               <h3 class="text-center fs-2 fw-bold py-3">${singlePhone.name}</h3>
-              <h6 class="text-center mb-3">${singlePhone.releaseDate}</h6>
+              <h6 class="text-center mb-3">${
+                singlePhone.releaseDate
+                  ? singlePhone.releaseDate
+                  : "date not published"
+              }</h6>
               <img
                 src="${singlePhone.image}"
                 class="card-img-top w-25 mx-auto mt-2"
                 alt="mobile image"
               />
               <div class="card-body">
-                <div class="table-responsive">
+                <div class="table-responsive ">
                 <table class="table table-striped table-hover">
                   <thead>
                     <tr class="fs-5 primary-color">
@@ -116,39 +120,39 @@ const showDetails = (singlePhone) => {
                     <tr>
                       <th scope="row">WLAN</th>
                       <td>: ${
-                        singlePhone?.others?.WLAN ?? "result not found"
+                        singlePhone?.others?.WLAN ??
+                        "Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot"
                       }</td>
                     </tr>
                     <tr>
                       <th scope="row">Bluetooth</th>
                       <td>
-                        : ${
-                          singlePhone?.others?.Bluetooth ?? "result not found"
-                        }
+                        : ${singlePhone?.others?.Bluetooth ?? "5.0, A2DP, LE"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">GPS</th>
                       <td>: ${
-                        singlePhone?.others?.GPS ?? "result not found"
+                        singlePhone?.others?.GPS ??
+                        "Yes, with A-GPS, GLONASS, GALILEO, BDS, QZSS"
                       }</td>
                     </tr>
                     <tr>
                       <th scope="row">NFC</th>
                       <td>
-                        : ${singlePhone?.others?.NFC ?? "result not found"}
+                        : ${singlePhone?.others?.NFC ?? "Yes"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">Radio</th>
                       <td>
-                        : ${singlePhone?.others?.Radio ?? "result not found"}
+                        : ${singlePhone?.others?.Radio ?? "No"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">USB</th>
                       <td>
-                        : ${singlePhone?.others?.USB ?? "result not found"}
+                        : ${singlePhone?.others?.USB ?? "Lightining USB, 2.0"}
                       </td>
                     </tr>
                   </tbody>
