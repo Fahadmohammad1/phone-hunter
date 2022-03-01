@@ -3,12 +3,19 @@ const loadPhones = () => {
   document.getElementById("details-container").innerHTML = "";
   document.getElementById("phone-container").innerHTML = "";
   const input = document.getElementById("search-input").value;
+  if (input === "") {
+    document.getElementById("empty-error").style.display = "block";
+  } else {
+    const url = `https://openapi.programming-hero.com/api/phones?search=${input}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => displayPhones(data.data.slice(0, 20)));
 
-  const url = `https://openapi.programming-hero.com/api/phones?search=${input}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => displayPhones(data.data.slice(0, 20)));
-  document.getElementById("search-input").value = "";
+    // reseting input value
+    document.getElementById("search-input").value = "";
+    // empty input error
+    document.getElementById("empty-error").style.display = "none";
+  }
 };
 // display phones to UI
 const displayPhones = (phones) => {
@@ -46,8 +53,8 @@ const showDetails = (singlePhone) => {
 
   const div = document.createElement("div");
   div.innerHTML = `
-  <div class="row row-cols-1 row-cols-md-1 g-4">
-          <div class="col">
+  <div class="row g-4">
+          <div class="col-12">
             <div class="card border-0 shadow-lg">
               <h3 class="text-center fs-2 fw-bold py-3">${singlePhone.name}</h3>
               <small class="text-center mb-3">Release Date: ${singlePhone.releaseDate}</small>
@@ -57,7 +64,7 @@ const showDetails = (singlePhone) => {
                 alt="mobile image"
               />
               <div class="card-body">
-                <table class="table table-striped">
+                <table class="table table-striped table-hover">
                   <thead>
                     <tr class="fs-5 primary-color">
                       <th scope="col">Main Features:</th>
@@ -69,7 +76,7 @@ const showDetails = (singlePhone) => {
                       <td>: ${singlePhone.mainFeatures.storage}</td>
                     </tr>
                     <tr>
-                      <th scope="row">Display</th>
+                      <th scope="row overflow-wrap">Display</th>
                       <td>
                         : ${singlePhone.mainFeatures.displaySize}
                       </td>
@@ -93,34 +100,34 @@ const showDetails = (singlePhone) => {
                   <tbody>
                     <tr>
                       <th scope="row">WLAN</th>
-                      <td>: ${singlePhone.others.WLAN}</td>
+                      <td>: ${singlePhone?.others?.WLAN}</td>
                     </tr>
                     <tr>
                       <th scope="row">Bluetooth</th>
                       <td>
-                        : ${singlePhone.others.Bluetooth}
+                        : ${singlePhone?.others?.Bluetooth}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">GPS</th>
-                      <td>: ${singlePhone.others.GPS}</td>
+                      <td>: ${singlePhone?.others?.GPS}</td>
                     </tr>
                     <tr>
                       <th scope="row">NFC</th>
                       <td>
-                        : ${singlePhone.others.NFC}
+                        : ${singlePhone?.others?.NFC}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">Radio</th>
                       <td>
-                        : ${singlePhone.others.Radio}
+                        : ${singlePhone?.others?.Radio}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">USB</th>
                       <td>
-                        : ${singlePhone.others.USB}
+                        : ${singlePhone?.others?.USB}
                       </td>
                     </tr>
                   </tbody>

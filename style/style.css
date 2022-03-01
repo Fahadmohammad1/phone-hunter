@@ -12,6 +12,10 @@ body {
 #phone-container {
   background-color: #cad5e2;
 }
+/* input field empty error */
+#empty-error {
+  display: none;
+}
 /* hide details container */
 #details-container {
   display: none;
