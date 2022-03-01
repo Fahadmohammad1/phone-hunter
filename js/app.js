@@ -37,7 +37,7 @@ const displayPhones = (phones) => {
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card pt-2 rounded-3 shadow-lg mx-auto" style="width: 18rem;">
-            <img src="${phone.image}" class="card-img-top p-1 w-50 mx-auto" alt="...">
+            <img src="${phone.image}" class="card-img-top p-1 w-50 mx-auto" alt="phone image">
         <div class="card-body">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             <h6>Brand: ${phone.brand}</h6>
@@ -71,16 +71,15 @@ const showDetails = (singlePhone) => {
           <div class="col-12">
             <div class="card border-0 shadow-lg">
               <h3 class="text-center fs-2 fw-bold py-3">${singlePhone.name}</h3>
-              <h6 class="text-center mb-3">Release Date: ${
-                singlePhone?.releaseDate ?? "not published"
-              }</h6>
+              <h6 class="text-center mb-3">${singlePhone.releaseDate}</h6>
               <img
                 src="${singlePhone.image}"
                 class="card-img-top w-25 mx-auto mt-2"
                 alt="mobile image"
               />
               <div class="card-body">
-                <table class="table table-striped table-hover word-break">
+                <div class="table-responsive">
+                <table class="table table-striped table-hover">
                   <thead>
                     <tr class="fs-5 primary-color">
                       <th scope="col">Main Features:</th>
@@ -154,6 +153,7 @@ const showDetails = (singlePhone) => {
                     </tr>
                   </tbody>
                 </table>
+                </div>
               </div>
             </div>
           </div>
