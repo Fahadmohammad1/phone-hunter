@@ -4,4 +4,8 @@
 body {
   font-family: "Poppins", sans-serif;
 }
+/* main title color */
+h1 {
+  color: #02b290;
+}
 /* hide details container */
