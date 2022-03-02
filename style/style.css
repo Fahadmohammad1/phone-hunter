@@ -8,6 +8,9 @@ body {
 .primary-color {
   color: #02b290;
 }
+header {
+  background-color: #cad5e2;
+}
 /* cards background */
 #phone-container {
   background-color: #cad5e2;

@@ -17,12 +17,12 @@
   </head>
   <body>
     <!-- search box and website title start -->
-    <header class="container mx-auto w-75">
-      <section class="mx-auto">
-        <h1 class="text-center fw-bolder text-uppercase mt-3 primary-color">
+    <header class="container mx-auto rounded-bottom">
+      <section class="mx-auto w-75">
+        <h1 class="text-center fw-bolder text-uppercase pt-3 primary-color">
           Smartphone explorer
         </h1>
-        <div class="d-flex mt-3">
+        <div class="d-flex mt-3 pb-3">
           <input
             id="search-input"
             class="form-control me-2"
@@ -31,6 +31,7 @@
             aria-label="Search"
           />
           <button
+            id="search-btn"
             onclick="loadPhones()"
             class="btn btn-outline-dark"
             type="submit"
@@ -67,7 +68,7 @@
       <section>
         <div
           id="phone-container"
-          class="row row-cols-lg-3 row-cols-1 gy-4"
+          class="row row-cols-lg-3 row-cols-1 gy-4 rounded-3"
         ></div>
       </section>
     </main>

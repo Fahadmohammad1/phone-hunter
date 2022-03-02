@@ -38,10 +38,10 @@ const displayPhones = (phones) => {
     div.innerHTML = `
     <div class="card pt-2 rounded-3 shadow-lg mx-auto" style="width: 18rem;">
             <img src="${phone.image}" class="card-img-top p-1 w-50 mx-auto" alt="phone image">
-        <div class="card-body">
+        <div class="card-body text-center">
             <h5 class="card-title fw-bold">${phone.phone_name}</h5>
             <h6>Brand: ${phone.brand}</h6>
-            <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-dark">Explore</button>
+            <button onclick="loadDetails('${phone.slug}')" class="btn btn-outline-dark ">Explore</button>
         </div>
     </div>
     `;
