@@ -123,40 +123,34 @@ const showDetails = (singlePhone) => {
                   <tbody>
                     <tr>
                       <th scope="row">WLAN</th>
-                      <td>: ${
-                        singlePhone?.others?.WLAN ??
-                        "Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot"
-                      }</td>
+                      <td>: ${singlePhone?.others?.WLAN ?? "Not Available"}</td>
                     </tr>
                     <tr>
                       <th scope="row">Bluetooth</th>
                       <td>
-                        : ${singlePhone?.others?.Bluetooth ?? "5.0, A2DP, LE"}
+                        : ${singlePhone?.others?.Bluetooth ?? "Not Available"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">GPS</th>
-                      <td>: ${
-                        singlePhone?.others?.GPS ??
-                        "Yes, with A-GPS, GLONASS, GALILEO, BDS, QZSS"
-                      }</td>
+                      <td>: ${singlePhone?.others?.GPS ?? "Not Available"}</td>
                     </tr>
                     <tr>
                       <th scope="row">NFC</th>
                       <td>
-                        : ${singlePhone?.others?.NFC ?? "Yes"}
+                        : ${singlePhone?.others?.NFC ?? " Not Available"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">Radio</th>
                       <td>
-                        : ${singlePhone?.others?.Radio ?? "No"}
+                        : ${singlePhone?.others?.Radio ?? "Not Available"}
                       </td>
                     </tr>
                     <tr>
                       <th scope="row">USB</th>
                       <td>
-                        : ${singlePhone?.others?.USB ?? "Lightining USB, 2.0"}
+                        : ${singlePhone?.others?.USB ?? "Not Available"}
                       </td>
                     </tr>
                   </tbody>
